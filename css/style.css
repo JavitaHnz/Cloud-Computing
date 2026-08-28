@@ -1,3 +1,86 @@
+/* ===== ESTILO GENERAL ===== */
 body {
-    background-color: lightblue;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #24152e, #563761, #9b7aa5);
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== TARJETA PRINCIPAL ===== */
+.contenedor {
+    background: rgba(255, 255, 255, 0.96);
+    width: 80%;
+    max-width: 600px;
+    padding: 55px 45px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 40px rgba(20, 5, 30, 0.35);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ===== TÍTULO ===== */
+h1 {
+    color: #4a235a;
+    font-size: 44px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* ===== SUBTÍTULO ===== */
+h2 {
+    color: #76517f;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+/* ===== TEXTO ===== */
+p {
+    color: #5f5f5f;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+/* ===== BOTÓN ===== */
+button {
+    background: linear-gradient(135deg, #5b2c6f, #7d4c8d);
+
+    color: white;
+
+    border: none;
+    padding: 14px 32px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 15px rgba(74, 35, 90, 0.30);
+
+    transition: 0.3s;
+}
+
+/* ===== EFECTO BOTÓN ===== */
+button:hover {
+    background: linear-gradient(135deg, #452052, #653875);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 20px rgba(74, 35, 90, 0.40);
 }
