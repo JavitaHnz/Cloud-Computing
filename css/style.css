@@ -84,3 +84,11 @@ button:hover {
     box-shadow:
         0 10px 20px rgba(74, 35, 90, 0.40);
 }
+
+/* ===== LOGO SANTO TOMÁS ===== */
+.logo {
+    width: 260px;
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+}
