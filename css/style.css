@@ -96,35 +96,43 @@ button:hover {
 /* ===== FORMULARIO DE PRODUCTOS ===== */
 
 .form-productos {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
     width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 450px;
+    margin: 25px auto 0;
+    text-align: left;
 }
 
 .campo {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    align-items: center;
-    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
 }
 
 .campo label {
-    text-align: right;
+    margin-bottom: 6px;
     font-weight: 600;
+    font-size: 16px;
+    color: #333;
 }
 
 .campo input {
-    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    font-size: 16px;
+
     border: 1px solid #ccc;
     border-radius: 8px;
-    font-size: 16px;
+
+    outline: none;
+}
+
+.campo input:focus {
+    border-color: #653875;
 }
 
 .form-productos button {
-    margin-top: 10px;
-    align-self: center;
+    display: block;
     width: 220px;
+    margin: 25px auto 0;
 }
