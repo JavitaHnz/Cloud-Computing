@@ -92,3 +92,39 @@ button:hover {
     height: auto;
     margin-bottom: 20px;
 }
+
+/* ===== FORMULARIO DE PRODUCTOS ===== */
+
+.form-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.campo {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+    gap: 15px;
+}
+
+.campo label {
+    text-align: right;
+    font-weight: 600;
+}
+
+.campo input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.form-productos button {
+    margin-top: 10px;
+    align-self: center;
+    width: 220px;
+}
