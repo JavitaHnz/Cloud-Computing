@@ -87,7 +87,53 @@ function mostrarProductos() {
         listaProductos.appendChild(fila);
     });
 }
+// ===== BUSCAR / FILTRAR PRODUCTOS =====
 
+const buscarProducto = document.getElementById("buscarProducto");
+
+if (buscarProducto) {
+
+    buscarProducto.addEventListener("input", function () {
+
+        const texto = buscarProducto.value.toLowerCase().trim();
+
+        listaProductos.innerHTML = "";
+
+        const productosFiltrados = productos.filter(producto => {
+
+            return (
+                String(producto.id).toLowerCase().includes(texto) ||
+                producto.nombre.toLowerCase().includes(texto)
+            );
+        });
+
+        productosFiltrados.forEach((producto) => {
+
+            // Buscar el índice real dentro del arreglo original
+            const indiceReal = productos.indexOf(producto);
+
+            const fila = document.createElement("tr");
+
+            fila.innerHTML = `
+                <td>${producto.id}</td>
+                <td>${producto.nombre}</td>
+                <td>$${producto.precio}</td>
+                <td>${producto.stock}</td>
+                <td>
+                    <button onclick="editarProducto(${indiceReal})">
+                        Editar
+                    </button>
+
+                    <button onclick="eliminarProducto(${indiceReal})">
+                        Eliminar
+                    </button>
+                </td>
+            `;
+
+            listaProductos.appendChild(fila);
+        });
+    });
+}
 
 // ===== ELIMINAR PRODUCTO =====
 

@@ -11,7 +11,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-// ===== BOTÓN GUARDAR FIREBASE =====
+// ======================================================
+// ===== BOTÓN GUARDAR FIREBASE =========================
+// ======================================================
 
 const btnGuardarFirebase = document.getElementById("btnGuardarFirebase");
 
@@ -115,6 +117,11 @@ const listaProductosFirebase =
     document.getElementById("listaProductosFirebase");
 
 
+// ===== ARREGLO PARA GUARDAR PRODUCTOS DE FIREBASE =====
+
+let productosFirebase = [];
+
+
 async function mostrarProductosFirebase() {
 
     if (!listaProductosFirebase) {
@@ -131,9 +138,16 @@ async function mostrarProductosFirebase() {
         );
 
 
+        // Limpiar el arreglo antes de volver a cargar
+        productosFirebase = [];
+
+
         consulta.forEach((documento) => {
 
             const producto = documento.data();
+
+            // Guardar producto en el arreglo
+            productosFirebase.push(producto);
 
 
             const fila = document.createElement("tr");
@@ -217,6 +231,68 @@ async function mostrarProductosFirebase() {
 
 
 // ======================================================
+// ===== BUSCAR / FILTRAR PRODUCTOS FIREBASE ============
+// ======================================================
+
+const buscarProductoFirebase =
+    document.getElementById("buscarProductoFirebase");
+
+
+if (buscarProductoFirebase) {
+
+    buscarProductoFirebase.addEventListener(
+        "input",
+        function () {
+
+            const texto =
+                buscarProductoFirebase.value
+                    .toLowerCase()
+                    .trim();
+
+
+            const filas =
+                listaProductosFirebase
+                    .querySelectorAll("tr");
+
+
+            filas.forEach((fila) => {
+
+                const id =
+                    fila.children[0]
+                        .textContent
+                        .toLowerCase();
+
+                const nombre =
+                    fila.children[1]
+                        .textContent
+                        .toLowerCase();
+
+
+                // Mostrar productos que coincidan
+                // por ID o por nombre
+
+                if (
+                    id.includes(texto) ||
+                    nombre.includes(texto)
+                ) {
+
+                    fila.style.display = "";
+
+                } else {
+
+                    fila.style.display = "none";
+
+                }
+
+            });
+
+        }
+    );
+
+}
+
+
+// ======================================================
 // ===== EDITAR PRODUCTO ================================
 // ======================================================
 
@@ -280,6 +356,8 @@ async function editarProductoFirebase(id) {
         }
 
 
+        // ===== VALIDAR CAMPOS =====
+
         if (
             nuevoNombre.trim() === "" ||
             nuevoPrecio.trim() === "" ||
@@ -291,6 +369,8 @@ async function editarProductoFirebase(id) {
 
         }
 
+
+        // ===== VALIDAR NÚMEROS =====
 
         if (
             Number(nuevoPrecio) < 0 ||
@@ -304,6 +384,8 @@ async function editarProductoFirebase(id) {
             return;
         }
 
+
+        // ===== ACTUALIZAR PRODUCTO =====
 
         await updateDoc(
             referenciaProducto,
@@ -386,6 +468,8 @@ async function eliminarProductoFirebase(id) {
 }
 
 
-// ===== CARGAR PRODUCTOS AL ABRIR LA PÁGINA =====
+// ======================================================
+// ===== CARGAR PRODUCTOS AL ABRIR LA PÁGINA ============
+// ======================================================
 
 mostrarProductosFirebase();
