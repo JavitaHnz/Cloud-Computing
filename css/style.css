@@ -418,3 +418,25 @@ body.pagina-productos {
         padding: 8px 5px;
     }
 }
+/* =====================================================
+   BOTONES DE INICIO
+   ===================================================== */
+
+.botones-inicio {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+}
+
+
+.botones-inicio button {
+    min-width: 170px;
+}

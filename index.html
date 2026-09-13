@@ -15,8 +15,8 @@
     <div class="contenedor">
         
         <img src="img/logo-IP-Santo-tomas.webp"
-         alt="Instituto Profesional Santo Tomás"
-         class="logo">
+             alt="Instituto Profesional Santo Tomás"
+             class="logo">
 
         <h1>Cloud Computing</h1>
 
@@ -27,12 +27,25 @@
             del Instituto Profesional Santo Tomás.
         </p>
 
-        <button onclick="window.location.href='html/informacion.html'">
-        Ingresar al sistema
-        </button>
+        <!-- ===== ACCESOS A LOS SISTEMAS ===== -->
+
+        <div class="botones-inicio">
+
+            <!-- Acceso al sistema con LocalStorage -->
+            <button onclick="window.location.href='html/informacion.html'">
+                💾 LocalStorage
+            </button>
+
+            <!-- Acceso al sistema con Firebase -->
+            <button onclick="window.location.href='html/registroFirebase.html'">
+                ☁️ Firebase
+            </button>
+
+        </div>
 
     </div>
 
     <script src="js/productos.js"></script>
+
 </body>
 </html>
