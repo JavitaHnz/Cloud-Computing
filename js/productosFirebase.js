@@ -100,7 +100,11 @@ if (btnGuardarFirebase) {
 
             console.error("Error al guardar en Firebase:", error);
 
-            alert("No se pudo guardar el producto en Firebase");
+            if (!navigator.onLine) {
+                alert("Sin conexión a Internet. Verifique su conexión e intente nuevamente.");
+            } else {
+                alert("No se pudo guardar el producto en Firebase. Intente nuevamente.");
+            }
 
         }
 
@@ -221,9 +225,19 @@ async function mostrarProductosFirebase() {
             error
         );
 
-        alert(
-            "No se pudieron cargar los productos"
-        );
+        if (!navigator.onLine) {
+
+            alert(
+                "Sin conexión a Internet. No se pudieron cargar los productos."
+            );
+
+        } else {
+
+            alert(
+                "No se pudieron cargar los productos desde Firebase. Intente nuevamente."
+            );
+
+        }
 
     }
 
@@ -412,9 +426,19 @@ async function editarProductoFirebase(id) {
             error
         );
 
-        alert(
-            "No se pudo editar el producto"
-        );
+        if (!navigator.onLine) {
+
+            alert(
+                "Sin conexión a Internet. No se pudo actualizar el producto."
+            );
+
+        } else {
+
+            alert(
+                "No se pudo editar el producto en Firebase. Intente nuevamente."
+            );
+
+        }
 
     }
 
@@ -459,9 +483,19 @@ async function eliminarProductoFirebase(id) {
             error
         );
 
-        alert(
-            "No se pudo eliminar el producto"
-        );
+        if (!navigator.onLine) {
+
+            alert(
+                "Sin conexión a Internet. No se pudo eliminar el producto."
+            );
+
+        } else {
+
+            alert(
+                "No se pudo eliminar el producto en Firebase. Intente nuevamente."
+            );
+
+        }
 
     }
 

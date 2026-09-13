@@ -22,6 +22,12 @@ if (btnGuardar) {
             return;
         }
 
+        // Validar que precio y stock no sean negativos
+        if (Number(precio) < 0 || Number(stock) < 0) {
+            alert("El precio y el stock no pueden ser negativos");
+            return;
+        }
+
         // Validar que el ID no esté repetido
         const existe = productos.some(producto => producto.id === id);
 
@@ -189,10 +195,28 @@ function editarProducto(indice) {
     if (nuevoStock === null) {
         return;
     }
+    // Validar que los campos no queden vacíos
+    if (
+        nuevoNombre.trim() === "" ||
+        nuevoPrecio.trim() === "" ||
+        nuevoStock.trim() === ""
+    ) {
+        alert("Los campos no pueden quedar vacíos");
+        return;
+    }
 
-    producto.nombre = nuevoNombre;
-    producto.precio = nuevoPrecio;
-    producto.stock = nuevoStock;
+    // Validar que precio y stock no sean negativos
+    if (
+        Number(nuevoPrecio) < 0 ||
+        Number(nuevoStock) < 0
+    ) {
+        alert("El precio y el stock no pueden ser negativos");
+        return;
+    }
+
+    producto.nombre = nuevoNombre.trim();
+    producto.precio = nuevoPrecio.trim();
+    producto.stock = nuevoStock.trim();
 
     localStorage.setItem(
         "productos",
