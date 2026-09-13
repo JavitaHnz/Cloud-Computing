@@ -1,10 +1,17 @@
 // ===== IMPORTAR FIREBASE =====
 
 import { initializeApp } from
-"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+    "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
 import { getFirestore } from
-"https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+    "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+import {
+    getAuth,
+    signInAnonymously,
+    onAuthStateChanged
+} from
+    "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
 
 // ===== CONFIGURACIÓN DE FIREBASE =====
@@ -30,6 +37,49 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-// ===== EXPORTAR BASE DE DATOS =====
+// ===== INICIALIZAR AUTENTICACIÓN =====
 
-export { db };
+const auth = getAuth(app);
+
+
+// ===== INICIAR SESIÓN ANÓNIMA =====
+
+onAuthStateChanged(auth, async (usuario) => {
+
+    // Si todavía no existe un usuario autenticado,
+    // Firebase crea una sesión anónima automáticamente.
+    if (!usuario) {
+
+        try {
+
+            await signInAnonymously(auth);
+
+            console.log(
+                "Autenticación anónima iniciada correctamente"
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Error en la autenticación anónima:",
+                error
+            );
+
+            alert(
+                "No se pudo establecer una conexión segura con Firebase."
+            );
+        }
+
+    } else {
+
+        console.log(
+            "Usuario autenticado:",
+            usuario.uid
+        );
+    }
+});
+
+
+// ===== EXPORTAR BASE DE DATOS Y AUTENTICACIÓN =====
+
+export { db, auth };
