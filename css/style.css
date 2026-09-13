@@ -314,10 +314,11 @@ body.pagina-productos {
 
 
 /* =====================================================
-   TABLA DE PRODUCTOS
+   TABLAS DE PRODUCTOS LOCAL Y FIREBASE
    ===================================================== */
 
-#tablaProductos {
+#tablaProductos,
+#tablaProductosFirebase {
     width: 100%;
 
     margin-top: 25px;
@@ -333,7 +334,9 @@ body.pagina-productos {
 
 
 #tablaProductos th,
-#tablaProductos td {
+#tablaProductos td,
+#tablaProductosFirebase th,
+#tablaProductosFirebase td {
     padding: 12px;
 
     text-align: center;
@@ -342,7 +345,8 @@ body.pagina-productos {
 }
 
 
-#tablaProductos th {
+#tablaProductos th,
+#tablaProductosFirebase th {
     background: #653875;
 
     color: white;
@@ -351,14 +355,16 @@ body.pagina-productos {
 }
 
 
-#tablaProductos tbody tr:hover {
+#tablaProductos tbody tr:hover,
+#tablaProductosFirebase tbody tr:hover {
     background: #f5eef8;
 }
 
 
-/* ===== BOTONES DENTRO DE LA TABLA ===== */
+/* ===== BOTONES DENTRO DE LAS TABLAS ===== */
 
-#tablaProductos button {
+#tablaProductos button,
+#tablaProductosFirebase button {
     padding: 8px 14px;
 
     font-size: 14px;
@@ -367,7 +373,6 @@ body.pagina-productos {
 
     border-radius: 20px;
 }
-
 
 /* =====================================================
    DISEÑO RESPONSIVE
@@ -408,16 +413,20 @@ body.pagina-productos {
     }
 
 
-    #tablaProductos {
+    #tablaProductos,
+    #tablaProductosFirebase {
         font-size: 13px;
     }
 
 
     #tablaProductos th,
-    #tablaProductos td {
+    #tablaProductos td,
+    #tablaProductosFirebase th,
+    #tablaProductosFirebase td {
         padding: 8px 5px;
     }
 }
+
 /* =====================================================
    BOTONES DE INICIO
    ===================================================== */
